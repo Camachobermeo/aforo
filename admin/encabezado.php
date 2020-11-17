@@ -29,6 +29,9 @@
                     <a class="nav-link" href="./videos.php">Subir Videos</a>
                     </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="./tablavideo.php">Tabla Video</a>
+                    </li>
+                <li class="nav-item">
                     <a class="nav-link" href="./index.php">Salir</a>
                 </li>
             </ul>
