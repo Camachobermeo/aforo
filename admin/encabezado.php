@@ -24,6 +24,10 @@
             <ul class="navbar-nav mr-auto text-center">
                 <li class="nav-item">
                     <a class="nav-link" href="./ajustes.php">Ajustes</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./videos.php">Subir Videos</a>
+                    </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./index.php">Salir</a>
                 </li>
