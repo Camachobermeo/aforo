@@ -8,7 +8,7 @@ if ($_REQUEST)
 
 <body>
 
-<?php include_once "encabezado.php" ?>
+<?php include_once "../../admin/encabezado.php" ?>
 <br>
 <div class="container">
 <?php
@@ -22,7 +22,7 @@ if ($_REQUEST)
   <br>
 <?php?>
 <?php
-include_once "../utiles/base_de_datos.php";
+include_once "../../utiles/base_de_datos.php";
 $sentencia = $base_de_datos->query("select * from logo");
 $logo = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
@@ -88,6 +88,6 @@ $logo = $sentencia->fetchAll(PDO::FETCH_OBJ);
 </div>
 </div>
 <br><br><br>
-<?php include_once "../pie.php" ?>
+<?php include_once "../../pie.php" ?>
 
 </html>

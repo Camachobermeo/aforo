@@ -5,7 +5,7 @@ if (!isset($_GET["id"])) {
 }
 
 $id = $_GET["id"];
-include_once "../utiles/base_de_datos.php";
+include_once "../../utiles/base_de_datos.php";
 $sentencia = $base_de_datos->prepare("DELETE FROM video WHERE id_video = ?;");
 $resultado = $sentencia->execute([$id]);
 if ($resultado === true) {
