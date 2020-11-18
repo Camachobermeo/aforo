@@ -29,7 +29,13 @@
                     <a class="nav-link" href="./videos.php">Subir Videos</a>
                     </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="./tablavideo.php">Tabla Video</a>
+                    <a class="nav-link" href="./logo.php">Subir Logos</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./tabla_logo.php">Lista de Logos</a>
+                    </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./tablavideo.php">Lista de Video</a>
                     </li>
                 <li class="nav-item">
                     <a class="nav-link" href="./index.php">Salir</a>

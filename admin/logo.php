@@ -11,7 +11,7 @@
             <br>
             <br>
             <br>
-            <form enctype="multipart/form-data" action="subirarchivo.php" method="POST">
+            <form enctype="multipart/form-data" action="listar_logos.php" method="POST">
                 <table class="table table-active">
                     <tr>
                         <td></td>
@@ -22,7 +22,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><h3><input name="uploadedfile" type="file" accept="image/png, image/jpeg" />
+                        <td><h3><input name="logo" id="logo" type="file" accept="image/png, image/jpeg" />
                             <input type="submit" value="Subir archivo" /></h3></td>
                         <td></td>
                     </tr>

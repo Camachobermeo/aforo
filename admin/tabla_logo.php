@@ -23,17 +23,17 @@ if ($_REQUEST)
 <?php?>
 <?php
 include_once "../utiles/base_de_datos.php";
-$sentencia = $base_de_datos->query("select * from video");
-$videos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+$sentencia = $base_de_datos->query("select * from logo");
+$logo = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
 <div class="container">
 	<div class="row">
 		<div class="col-md-9">
-			<h1>Lista De Videos</h1>
+			<h1>Lista De Logo</h1>
 		</div>
 		<br>
 		<div class="col-md-3 text-right">
-			<a class="btn btn-primary" href="<?php echo "videos.php" ?>">Nuevo</a>
+			<a class="btn btn-primary" href="<?php echo "logo.php" ?>">Nuevo</a>
 		</div>
 		<br>
 		<br>
@@ -49,16 +49,16 @@ $videos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 					</thead>
 					<tbody>
 						<br>
-						<?php foreach ($videos as $aforo) { ?>
+						<?php foreach ($logo as $aforo) { ?>
 							<tr>
-								<td><?php echo $aforo->id_video?></td>
-								<td><?php echo $aforo->url_video ?></td>
+								<td><?php echo $aforo->id_logo?></td>
+								<td><?php echo $aforo->url_logo ?></td>
 								<td>
-									<button type="button" class="btn btn-danger" href="<?php echo "eliminarvideo.php?id=" . $aforo->id_video ?>" data-toggle="modal" data-target="#staticBackdrop<?php echo $aforo->id_video ?>">
+									<button type="button" class="btn btn-danger" href="<?php echo "eliminarlogo.php?id=" . $aforo->id_logo ?>" data-toggle="modal" data-target="#staticBackdrop<?php echo $aforo->id_logo ?>">
 										Eliminar
 									</button>
 
-									<div class="modal fade" id="staticBackdrop<?php echo $aforo->id_video ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+									<div class="modal fade" id="staticBackdrop<?php echo $aforo->id_logo ?>" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
 										<div class="modal-dialog">
 											<div class="modal-content">
 												<div class="modal-header">
@@ -68,11 +68,11 @@ $videos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 													</button>
 												</div>
 												<div class="modal-body">
-													¿Estas seguro de eliminar a <?php echo "" . $aforo->url_video ?> ?
+													¿Estas seguro de eliminar a <?php echo "" . $aforo->url_logo ?> ?
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-													<a class="btn btn-primary" href="<?php echo "eliminarvideo.php?id=" . $aforo->id_video ?>">Aceptar</a>
+													<a class="btn btn-primary" href="<?php echo "eliminarlogo.php?id=" . $aforo->id_logo ?>">Aceptar</a>
 												</div>
 											</div>
 										</div>

@@ -11,7 +11,7 @@
             <br>
             <br>
             <br>
-            <form enctype="multipart/form-data" action="subirvideo.php" method="POST">
+            <form enctype="multipart/form-data" action="listar_video.php" method="POST">
                 <table class="table table-active">
                     <tr>
                         <td></td>
