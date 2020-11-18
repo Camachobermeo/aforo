@@ -72,7 +72,7 @@ $videos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-													<a class="btn btn-primary" href="<?php echo "eliminarvideo.php?id=" . $aforo->id_video ?>">Aceptar</a>
+													<a class="btn btn-primary" href="<?php echo "eliminarvideo.php?id=" . $aforo->id_video."&&nombre=".$aforo->url_video ?>">Aceptar</a>
 												</div>
 											</div>
 										</div>
