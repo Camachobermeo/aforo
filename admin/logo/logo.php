@@ -1,5 +1,5 @@
 <html>
-<?php include_once "encabezado.php" ?>
+<?php include_once "../../admin/encabezado.php" ?>
 <br>
 
 <body>
@@ -32,5 +32,5 @@
         </div>
     </div>
 </body>
-<?php include_once "../pie.php" ?>
+<?php include_once "../../pie.php" ?>
 </html>

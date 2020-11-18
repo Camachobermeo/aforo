@@ -8,7 +8,7 @@
 //     exit();
 // }
 
-include_once "../utiles/base_de_datos.php";
+include_once "../../utiles/base_de_datos.php";
 $url = "utiles/videos/video1.mp4";
 try {
 $sentencia = $base_de_datos->prepare("INSERT INTO video(url_video) VALUES (?);");
