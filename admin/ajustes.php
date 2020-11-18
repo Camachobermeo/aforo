@@ -24,7 +24,7 @@
 
     <h1>Contador De Personas</h1>
     <br>
-    <form name="loginForm" method="GET" action="./funcion-de-ajuste.php" onsubmit="changeParams()">
+    <form name="loginForm" method="GET" action="../index.php" onsubmit="changeParams()">
       <table class="table table-light">
           <tr>
             <td><label for="user">Usuario:</label></td>
