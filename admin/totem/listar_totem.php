@@ -78,7 +78,7 @@ $totems = $sentencia->fetchAll(PDO::FETCH_OBJ);
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-													<a class="btn btn-primary" href="<?php echo "eleminar_totem.php?id=" . $totem->id_totem ?>">Aceptar</a>
+													<a class="btn btn-primary" href="<?php echo "eliminar_totem.php?id=" . $totem->id_totem ?>">Aceptar</a>
 												</div>
 											</div>
 										</div>
