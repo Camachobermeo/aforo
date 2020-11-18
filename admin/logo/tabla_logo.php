@@ -72,7 +72,7 @@ $logo = $sentencia->fetchAll(PDO::FETCH_OBJ);
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-													<a class="btn btn-primary" href="<?php echo "eliminarlogo.php?id=" . $aforo->id_logo ?>">Aceptar</a>
+													<a class="btn btn-primary" href="<?php echo "eliminarlogo.php?id=" . $aforo->id_logo."&&nombre=".$aforo->url_logo ?>">Aceptar</a>
 												</div>
 											</div>
 										</div>
