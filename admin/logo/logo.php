@@ -22,8 +22,8 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><h3><input name="logo" id="logo" type="file" accept="image/png, image/jpeg" />
-                            <input type="submit" value="Subir archivo" /></h3></td>
+                        <td><h3><input name="archivo" id="logo" type="file" accept="image/png, image/jpeg" />
+                            <input name="subir" type="submit" value="Subir archivo" /></h3></td>
                         <td></td>
                     </tr>
                 </table>
