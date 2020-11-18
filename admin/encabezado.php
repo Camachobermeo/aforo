@@ -26,6 +26,9 @@
                     <a class="nav-link" href="/aforo/admin/ajustes.php">Ajustes</a>
                     </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="/aforo/admin/totem/listar_totem.php">Totem</a>
+                    </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/aforo/admin/logo/tabla_logo.php">Logos</a>
                     </li>
                 <li class="nav-item">
