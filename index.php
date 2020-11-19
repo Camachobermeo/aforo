@@ -33,12 +33,12 @@
   <br>
   <br>
   <br>
-  <table class="container">
+  <table class="container mb-5" id="tabla" style="border-radius: 10%;">
     <tr>
       <td>
         <table>
           <tr>
-            <td width=50% class="text-center">
+            <td width=50% class="text-center pt-4">
               <div id="header" style="font-size: 300%;">Bienvenido!</div><br><br>
               <div style="font-size: 200%;">Aforo Actual:</div>
               <strong>
@@ -203,6 +203,7 @@
       document.getElementById("sign").style.display = "";
       if (total >= max) {
         // document.body.style.backgroundColor = "#f0c0c0";
+        document.getElementById("tabla").style.background = "#f0c0c0";
         // document.getElementById("marquee").style.background = "#f0c0c0";
         document.getElementById("div_total").style.color = "red";
         document.getElementById("msg").innerHTML = msg_stop;
@@ -210,6 +211,7 @@
         document.getElementById("sign").src = "utiles/stop.png";
       } else {
         // document.body.style.backgroundColor = "#c0f0c0";
+        document.getElementById("tabla").style.background = "#c0f0c0";
         // document.getElementById("marquee").style.background = "#c0f0c0";
         document.getElementById("div_total").style.color = "green";
         document.getElementById("msg").innerHTML = msg_go;
