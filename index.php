@@ -133,7 +133,7 @@
           </tr>
           <tr>
             <td><label for="scrolling">Mensaje de desplazamiento</label></td>
-            <td colspan="3"><textarea class="form-control" rows="3" cols="50" maxlength="150" id="scrolling" name="scrolling">No olvides tomar tu temperatura y lavarte las manos con alcohol gel en el Totem-Pro.</textarea></td>
+            <td colspan="3"><textarea class="form-control" rows="3" cols="50" maxlength="150" name="scrolling">No olvides tomar tu temperatura y lavarte las manos con alcohol gel en el Totem-Pro.</textarea></td>
           </tr>
           <tr>
             <td></td>
