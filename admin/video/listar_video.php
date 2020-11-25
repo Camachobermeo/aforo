@@ -10,7 +10,7 @@ if (isset($_POST['subir'])) {
       $temp = $_FILES['archivo']['tmp_name'];
       if (move_uploaded_file($temp, '../../utiles/videos/' . $archivo)) {
          chmod('../../utiles/videos/' . $archivo, 0777);
-         include_once "../../utiles/base_de_datos.php";
+         include_once "../../utiles/base_de_datos.php"; 
          $url = $archivo;
          try {
             $sentencia = $base_de_datos->prepare("INSERT INTO video(url_video) VALUES (?);");
