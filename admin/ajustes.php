@@ -149,7 +149,7 @@
       </table>
     </form>
 
-    <script src="params.dat"></script>
+    <script src="../params.dat"></script>
     <script type="text/javascript">
       var dict = parseParams();
       var msg = "";

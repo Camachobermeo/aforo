@@ -8,7 +8,7 @@
   <br>
   <script type="text/javascript">
     function changeParams() {
-      document.forms["loginForm"]["p"].value = window.btoa(document.forms["loginForm"]["p"].value);
+      // document.forms["loginForm"]["p"].value = window.btoa(document.forms["loginForm"]["p"].value);
       return true;
     }
 
