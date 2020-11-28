@@ -10,6 +10,16 @@
   <script src="reloj.js" type="text/javascript"></script>
 </head>
 
+<?php
+include_once "utiles/base_de_datos.php";
+$url = "";
+$sentencia = $base_de_datos->query("select * from video");
+$videos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+foreach ($videos as $aforo) {
+  $url = $aforo->url_video;
+}
+?>
+
 <body class="p-2 mt-1">
 
   <div class="row m-0">
@@ -24,11 +34,9 @@
   </div>
   <br> <br> <br> <br>
   <div class="row m-0 mt-5">
-    <div id="car1" class="carousel-item active" style="border: 0;">
-      <video id="mi-video" autoplay muted class="d-block w-100" style="border: 0;">
-        <source src="utiles/video1.mp4" type="video/mp4">
-      </video>
-    </div>
+    <video id="mi-video" autoplay muted width="100%" height="830px" class="d-block" style="border: 0;">
+      <source src="utiles/videos/<?php echo $url ?>" type="video/mp4">
+    </video>
   </div>
   <br>
   <br>
@@ -66,6 +74,7 @@
   <script src="params.dat"></script>
   <script>
     // initialization //////////////////////////////////////////
+    var videos = <?php echo json_encode($videos); ?>;
     var dict = parseParams();
     updateData();
 
@@ -116,6 +125,7 @@
 
     function updateData() {
       var u = dict['user'];
+      // var p = window.atob(dict['pass']);
       var p = window.atob(dict['pass']);
       var debug = dict['debug'];
 
@@ -256,22 +266,29 @@
         $fuente = $(this).attr('src');
       });
 
-      switch ($fuente) {
-        case "utiles/video1.mp4":
-          $('source', $('#mi-video')).attr('src', "utiles/video2.mp4");
-          break;
-        case "utiles/video2.mp4":
-          $('source', $('#mi-video')).attr('src', "utiles/video3.mp4");
-          break;
-        case "utiles/video3.mp4":
-          $('source', $('#mi-video')).attr('src', "utiles/video4.mp4");
-          break;
-        case "utiles/video4.mp4":
-          $('source', $('#mi-video')).attr('src', "utiles/video1.mp4");
-          break;
-        default:
-          $('source', $('#mi-video')).attr('src', "utiles/video1.mp4");
-          break;
+      var index = videos.findIndex(item => "utiles/videos/" + item.url_video == $fuente);
+
+      if (index >= 0 && index < videos.length - 1) {
+        $('source', $('#mi-video')).attr('src', "utiles/videos/" + videos[index + 1].url_video);
+      } else {
+        $('source', $('#mi-video')).attr('src', "utiles/videos/" + videos[0].url_video);
+      }
+      $('#mi-video')[0].load();
+      $('#mi-video')[0].play();
+    });
+
+    $('video source').last().on('error', function() {
+      var $fuente = "";
+      $('#mi-video').find('source').each(function() {
+        $fuente = $(this).attr('src');
+      });
+
+      var index = videos.findIndex(item => "utiles/videos/" + item.url_video == $fuente);
+
+      if (index >= 0 && index < videos.length - 1) {
+        $('source', $('#mi-video')).attr('src', "utiles/videos/" + videos[index + 1].url_video);
+      } else {
+        $('source', $('#mi-video')).attr('src', "utiles/videos/" + videos[0].url_video);
       }
       $('#mi-video')[0].load();
       $('#mi-video')[0].play();

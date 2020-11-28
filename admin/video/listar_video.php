@@ -19,16 +19,16 @@ if (isset($_POST['subir'])) {
                if ($resultado === true) {
                   header("Location: tablavideo.php?guardado=1");
                } else {
-                  header("Location: videos.php?fallo=1");
+                  header("Location: videos.php?fallo=ResultadoFalseDeBaseDeDatos");
                }
-            } catch (\Throwable $th) {
-               header("Location: videos.php?fallo=1");
+            } catch (Exception $th) {
+               header("Location: videos.php?fallo=ErrorDesconocido");
             }
          } else {
-            header("Location: videos.php?fallo=1");
+            header("Location: videos.php?fallo=ErrorAlMoverElArchivo");
          }
-      } catch (\Throwable $th) {
-         header("Location: videos.php?fallo=1");
+      } catch (Exception $th) {
+         header("Location: videos.php?fallo=ErrorDesconocido");
       }
    }
 }
