@@ -72,6 +72,7 @@
     // functions //////////////////////////////////////////
     function getTotal(ip, user, pass, counter, debug) {
       var xmlHttp = new XMLHttpRequest();
+      // xmlHttp.open("GET", "http://190.160.219.189:8000/init-cgi/pw_init.cgi?msubmenu=statuscheck&action=view&date=1606509030635", false, user, pass); // false for synchronous request
       xmlHttp.open("GET", "http://" + ip + "/stw-cgi/eventsources.cgi?msubmenu=peoplecount&action=check&Channel=0", false, user, pass); // false for synchronous request
       xmlHttp.withCredentials = true;
       xmlHttp.send(null);
