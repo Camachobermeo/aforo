@@ -1,213 +1,308 @@
+<!DOCTYPE html>
 <html>
 
 <head>
+  <title>Totem</title>
   <link rel="stylesheet" href="utiles/bootstrap.min.css">
   <link rel="stylesheet" href="utiles/texto.css">
   <script src="utiles/jquery.js" type="text/javascript"></script>
   <script src="utiles/bootstrap.min.js" type="text/javascript"></script>
-
-  <br>
-  <script type="text/javascript">
-    function changeParams() {
-      document.forms["loginForm"]["p"].value = window.btoa(document.forms["loginForm"]["p"].value);
-      return true;
-    }
-
-    function enableCheckboxes(textbox, checkbox1, checkbox2) {
-      var text = document.getElementById(textbox).value;
-      document.getElementById(checkbox1).disabled = (text.length == 0);
-      document.getElementById(checkbox2).disabled = (text.length == 0);
-    }
-  </script>
+  <script src="reloj.js" type="text/javascript"></script>
 </head>
-<div class="container">
-  <div class="text-center">
 
-    <body>
+<?php
+include_once "utiles/base_de_datos.php";
+$url = "";
+$sentencia = $base_de_datos->query("select * from video");
+$videos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+foreach ($videos as $aforo) {
+  $url = $aforo->url_video;
+}
+?>
 
-      <h1>Contador De Personas</h1>
-      <br>
-      <form name="loginForm" method="GET" action="./index2.php" onsubmit="changeParams()">
-        <table class="table table-light">
+<body class="p-2 mt-1">
+
+  <div class="row m-0">
+    <div class="col-md-4">
+      <img id="logo" src="utiles/logo.png" width="150" style="position: absolute; left: 0; padding: 10px;"></img>
+    </div>
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+      <img src="utiles/ht-logo.png" width="180" style="position: absolute; right: 0; padding: 10px;" class="mt-3"></img>
+    </div>
+  </div>
+  <br> <br> <br> <br>
+  <div class="row m-0 mt-5">
+    <video id="mi-video" autoplay muted width="100%" height="830px" class="d-block" style="border: 0;">
+      <source src="utiles/videos/<?php echo $url ?>" type="video/mp4">
+    </video>
+  </div>
+  <br>
+  <br>
+  <br>
+  <table class="container mb-5" id="tabla" style="border-radius: 10%;">
+    <tr>
+      <td>
+        <table>
           <tr>
-            <td><label for="user">Usuario:</label></td>
-            <td><input type="text" class="form-control" id="user" name="u" value="totem"></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><label for="pass">Clave:</label></td>
-            <td><input type="password" class="form-control" id="pass" name="p" value="Melli123"></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><label for="camera1">Cámara 1:</label></td>
-            <td><input type="text" class="form-control" id="camera1" name="ip1" value="192.168.0.100" oninput="enableCheckboxes('camera1', 'camera1_counter1', 'camera1_counter2')"></td>
-            <td><input type="checkbox" id="camera1_counter1" name="ip1_c1" value="true" checked><label for="camera1_counter1"> Contador 1 </label></td>
-            <td><input type="checkbox" id="camera1_counter2" name="ip1_c2" value="true"><label for="camera1_counter2"> Contador 2 </label></td>
-          </tr>
-          <tr>
-            <td><label for="camera2">Cámara 2:</label></td>
-            <td><input type="text" class="form-control" id="camera2" name="ip2" value="" oninput="enableCheckboxes('camera2', 'camera2_counter1', 'camera2_counter2')"></td>
-            <td><input type="checkbox" id="camera2_counter1" name="ip2_c1" value="true" checked disabled="true"><label for="camera2_counter1"> Contador 1 </label></td>
-            <td><input type="checkbox" id="camera2_counter2" name="ip2_c2" value="true" disabled="true"><label for="camera2_counter2"> Contador 2 </label></td>
-          </tr>
-          <tr>
-            <td><label for="camera3">Cámara 3:</label></td>
-            <td><input type="text" class="form-control" id="camera3" name="ip3" value="" oninput="enableCheckboxes('camera3', 'camera3_counter1', 'camera3_counter2')"></td>
-            <td><input type="checkbox" id="camera3_counter1" name="ip3_c1" value="true" checked disabled="true"><label for="camera3_counter1"> Contador 1 </label></td>
-            <td><input type="checkbox" id="camera3_counter2" name="ip3_c2" value="true" disabled="true"><label for="camera3_counter2"> Contador 2 </label></td>
-          </tr>
-          <tr>
-            <td><label for="camera4">Cámara 4:</label></td>
-            <td><input type="text" class="form-control" id="camera4" name="ip4" value="" oninput="enableCheckboxes('camera4', 'camera4_counter1', 'camera4_counter2')"></td>
-            <td><input type="checkbox" id="camera4_counter1" name="ip4_c1" value="true" checked disabled="true"><label for="camera4_counter1"> Contador 1 </label></td>
-            <td><input type="checkbox" id="camera4_counter2" name="ip4_c2" value="true" disabled="true"><label for="camera4_counter2"> Contador 2 </label></td>
-          </tr>
-          <tr>
-            <td><label for="camera5">Cámara 5:</label></td>
-            <td><input type="text" class="form-control" id="camera5" name="ip5" value="" oninput="enableCheckboxes('camera5', 'camera5_counter1', 'camera5_counter2')"></td>
-            <td><input type="checkbox" id="camera5_counter1" name="ip5_c1" value="true" checked disabled="true"><label for="camera5_counter1"> Contador 1 </label></td>
-            <td><input type="checkbox" id="camera5_counter2" name="ip5_c2" value="true"><label for="camera5_counter2"> Contador 2 </label></td>
-          </tr>
-          <tr>
-            <td><label for="camera6">Cámara 6:</label></td>
-            <td><input type="text" class="form-control" id="camera6" name="ip6" value="" oninput="enableCheckboxes('camera6', 'camera6_counter1', 'camera6_counter2')"></td>
-            <td><input type="checkbox" id="camera6_counter1" name="ip6_c1" value="true" checked disabled="true"><label for="camera6_counter1"> Contador 1 </label></td>
-            <td><input type="checkbox" id="camera6_counter2" name="ip6_c2" value="true" disabled="true"><label for="camera6_counter2"> Contador 2 </label></td>
-          </tr>
-          <tr>
-            <td><label for="camera7">Cámara 7:</label></td>
-            <td><input type="text" class="form-control" id="camera7" name="ip7" value="" oninput="enableCheckboxes('camera7', 'camera7_counter1', 'camera7_counter2')"></td>
-            <td><input type="checkbox" id="camera7_counter1" name="ip7_c1" value="true" checked disabled="true"><label for="camera7_counter1"> Contador 1 </label></td>
-            <td><input type="checkbox" id="camera7_counter2" name="ip7_c2" value="true" disabled="true"><label for="camera7_counter2"> Contador 2 </label></td>
-          </tr>
-          <tr>
-            <td><label for="camera8">Cámara 8:</label></td>
-            <td><input type="text" class="form-control" id="camera8" name="ip8" value="" oninput="enableCheckboxes('camera8', 'camera8_counter1', 'camera8_counter2')"></td>
-            <td><input type="checkbox" id="camera8_counter1" name="ip8_c1" value="true" checked disabled="true"><label for="camera8_counter1"> Contador 1 </label></td>
-            <td><input type="checkbox" id="camera8_counter2" name="ip8_c2" value="true" disabled="true"><label for="camera8_counter2"> Contador 2 </label></td>
-          </tr>
-          <tr>
-            <td><label for="max">Límite máximo:</label></td>
-            <td><input type="text" class="form-control" class="form-control" id="max" name="max" value="100"></td>
-            <td>personas.</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><label for="correction">Corrección:</label></td>
-            <td><input type="text" class="form-control" id="correction" name="correction" value=""></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><label for="refresh">Actualizar:</label></td>
-            <td><input type="text" class="form-control" id="refresh" name="refresh" value="5"></td>
-            <td>segundos.</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><label for="logo_file">Archivo de logotipo:</label></td>
-            <td><input type="text" class="form-control" id="logo_file" name="logo_file" value="logo.png"></td>
-            <td><label for="logo_width">Ancho (px):</label></td>
-            <td><input type="text" class="form-control" id="logo_width" name="logo_width" value="200"></td>
-          </tr>
-          <tr>
-            <td><label for="header">Encabezamiento</label></td>
-            <td><input type="text" class="form-control" id="header" name="header" value="Bienvenido!"></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><label for="stop">Detener mensaje:</label></td>
-            <td><input type="text" class="form-control" id="stop" name="stop" value="Por favor espera...!"></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><label for="go">Ir mensaje:</label></td>
-            <td><input type="text" class="form-control" id="go" name="go" value="Ya Puedes entrar!"></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td><label for="scrolling">Mensaje de desplazamiento</label></td>
-            <td colspan="3"><textarea class="form-control" rows="3" cols="50" maxlength="150" id="scrolling" name="scrolling">No olvides tomar tu temperatura y lavarte las manos con alcohol gel en el Totem-Pro.</textarea></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><input type="checkbox" id="debug" name="debug" value="true">
-              <label for="debug"> Información de depuración</label></td>
-            <td></td>
-            <td class="text-right"><button type="submit" class="btn btn-primary">Enviar</button></td>
-          </tr>
-          <tr>
-            <td></td>
-            <td><input type="checkbox" id="negative" name="negative" value="true">
-              <label for="negative"> Permitir negativo</label></td>
-            <td></td>
-            <td></td>
+            <td width=50% class="text-center pt-4">
+              <div id="header" style="font-size: 300%;">Bienvenido!</div><br><br>
+              <div style="font-size: 200%;">Aforo Actual:</div>
+              <strong>
+                <div id="div_total" style="font-size: 850%;">0</div>
+              </strong>
+              <div style="font-size: 200%;">Aforo Permitido:</div>
+              <div id="div_max" style="font-size: 600%;">100</div><br>
+              <strong>
+                <div id="msg" style="font-size: 200%;"></div>
+              </strong>
+            </td>
+            <td width=50%><img id="sign" src="utiles/go.png" width="85%"></td>
           </tr>
         </table>
-      </form>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="marquee">
+          <div id="scrolling"></div>
+        </div><br>
+        <div id="debug" style="font-size: 80%;"></div>
+  </table>
 
-      <script src="params.dat"></script>
-      <script type="text/javascript">
-        var dict = parseParams();
-        var msg = "";
+  <script src="params.dat"></script>
+  <script>
+    // initialization //////////////////////////////////////////
+    var videos = <?php echo json_encode($videos); ?>;
+    var dict = parseParams();
+    updateData();
 
-        for (var item in dict) {
-          var key = item;
-          var value = dict[item];
+    // functions //////////////////////////////////////////
+    function getTotal(ip, user, pass, counter, debug) {
+      var xmlHttp = new XMLHttpRequest();
+      // xmlHttp.open("GET", "http://190.160.219.189:8000/init-cgi/pw_init.cgi?msubmenu=statuscheck&action=view&date=1606509030635", false, user, pass); // false for synchronous request
+      xmlHttp.open("GET", "http://" + ip + "/stw-cgi/eventsources.cgi?msubmenu=peoplecount&action=check&Channel=0", false, user, pass); // false for synchronous request
+      xmlHttp.withCredentials = true;
+      xmlHttp.send(null);
 
-          if (value.length == "")
+      var str = xmlHttp.responseText;
+
+      var in_key = "." + counter + ".InCount=";
+      var out_key = "." + counter + ".OutCount=";
+      var in_pos = str.indexOf(in_key) + in_key.length;
+      var in_end = str.indexOf("\r", in_pos);
+      var in_value = Number(str.slice(in_pos, in_end));
+      var out_pos = str.indexOf(out_key) + out_key.length;
+      var out_end = str.indexOf("\r", out_pos);
+      var out_value = Number(str.slice(out_pos, out_end));
+      var total = in_value - out_value;
+
+      if (debug) {
+        if (str.indexOf('401 - Unauthorized') >= 0)
+          printDebug(' >> Connection or Login problem. Please first try to log-in to the camera(s) WebViewer page.<br>');
+        else
+          printDebug(" | Counter " + counter + ", In " + in_value + ", Out " + out_value + ", Total " + total);
+      }
+      return total;
+    }
+
+    function parseParams() {
+      var dictionary = {};
+      if (data.indexOf('$') === 0) {
+        data = data.substr(1);
+      }
+      var parts = data.split('$');
+      for (var i = 0; i < parts.length; i++) {
+        var p = parts[i];
+        var keyValuePair = p.split('=');
+        var key = keyValuePair[0];
+        var value = keyValuePair[1];
+        dictionary[key] = value;
+      }
+      return dictionary;
+    }
+
+    function updateData() {
+      var u = dict['user'];
+      // var p = window.atob(dict['pass']);
+      var p = window.atob(dict['pass']);
+      var debug = dict['debug'];
+
+      if (debug)
+        clearDebug();
+
+      var max = 50;
+      if (dict["max"] && !isNaN(dict["max"]))
+        max = Number(dict["max"]);
+
+      var logo_file = "utiles/logo.png";
+      if (dict["logo_file"])
+        logo_file = "utiles/" + dict["logo_file"];
+
+      var logo_width = 150;
+      if (dict["logo_width"] && !isNaN(dict["logo_width"]))
+        logo_width = Number(dict["logo_width"]);
+
+      document.getElementById("logo").src = logo_file;
+      document.getElementById("logo").width = logo_width;
+
+      var total = 0;
+
+      for (var i = 1; i <= 8; i++) {
+        if (dict["camera" + i]) {
+          var ip = dict["camera" + i];
+          var c1 = dict["camera" + i + "_counter1"];
+          var c2 = dict["camera" + i + "_counter2"];
+
+          if (ip == "" || u == "" || p == "")
             continue;
 
-          console.log(key + " = " + value);
+          if (debug)
+            printDebug("IP " + ip);
 
-          if (document.getElementById(key).type.toLowerCase() == 'checkbox') {
-            document.getElementById(key).checked = (value === 'true');
-            continue;
-          }
-          document.getElementById(key).value = value;
+          if (c1)
+            total += getTotal(ip, u, p, 1, debug);
+
+          if (c2)
+            total += getTotal(ip, u, p, 2, debug);
+
+          if (debug && !isNaN(total))
+            printDebug(" | <a onclick=\"resetCounters('" + ip + "', '" + u + "', '" + p + "')\" href=\"#\"><font size='-3' color='red'>RESET</font></a><br>");
         }
+      }
 
+      var correction = 0;
+      if (dict["correction"] && !isNaN(dict["correction"]))
+        correction = Number(dict["correction"]);
 
-        function parseParams() {
-          var dictionary = {};
+      if (debug && !isNaN(total))
+        printDebug("Correction: " + correction + "<br>");
 
-          if (data.indexOf('$') === 0) {
-            data = data.substr(1);
-          }
+      var header = "Bienvenido!";
+      if (dict["header"])
+        header = dict["header"];
 
-          var parts = data.split('$');
+      document.getElementById("header").innerHTML = header;
 
-          for (var i = 0; i < parts.length; i++) {
-            var p = parts[i];
-            var keyValuePair = p.split('=');
-            var key = keyValuePair[0];
-            var value = keyValuePair[1];
-            dictionary[key] = value;
-          }
+      var msg_stop = "Por Favor Espere...!";
+      if (dict["stop"])
+        msg_stop = dict["stop"];
 
-          return dictionary;
-        }
-      </script>
-      <br><br><br>
+      var msg_go = "Ud puede pasar!";
+      if (dict["go"])
+        msg_go = dict["go"];
 
-  </div>
-</div>
+      var msg_scrolling = "";
+      if (dict["scrolling"])
+        msg_scrolling = dict["scrolling"];
+
+      total += correction;
+
+      if (total < 0 && dict["negative"] == false)
+        total = 0;
+
+      var refresh = 5;
+      if (dict["refresh"] && !isNaN(dict["refresh"]))
+        refresh = Number(dict["refresh"]);
+
+      if (isNaN(total)) {
+        document.getElementById("div_total").innerHTML = "N/A";
+        document.getElementById("div_max").innerHTML = "N/A";
+        document.getElementById("sign").style.display = "none";
+        setTimeout(updateData, refresh * 1000);
+        return;
+      }
+
+      document.getElementById("div_total").innerHTML = total.toString();
+      document.getElementById("div_max").innerHTML = max.toString();
+      document.getElementById("sign").style.display = "";
+      if (total >= max) {
+        // document.body.style.backgroundColor = "#f0c0c0";
+        document.getElementById("tabla").style.background = "#f0c0c0";
+        // document.getElementById("marquee").style.background = "#f0c0c0";
+        document.getElementById("div_total").style.color = "red";
+        document.getElementById("msg").innerHTML = msg_stop;
+        document.getElementById("msg").style.color = "red";
+        document.getElementById("sign").src = "utiles/stop.png";
+      } else {
+        // document.body.style.backgroundColor = "#c0f0c0";
+        document.getElementById("tabla").style.background = "#c0f0c0";
+        // document.getElementById("marquee").style.background = "#c0f0c0";
+        document.getElementById("div_total").style.color = "green";
+        document.getElementById("msg").innerHTML = msg_go;
+        document.getElementById("msg").style.color = "green";
+        document.getElementById("sign").src = "utiles/go.png";
+      }
+      document.getElementById("scrolling").innerHTML = msg_scrolling;
+      setTimeout(updateData, refresh * 1000);
+    }
+
+    function resetCounters(ip, user, pass) {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("GET", "http://" + ip + "/stw-cgi/system.cgi?msubmenu=databasereset&action=control&IncludeDataType=PeopleCount", false, user, pass); // false for synchronous request
+      xmlHttp.withCredentials = true;
+      xmlHttp.send(null);
+      updateData();
+    }
+
+    function printDebug(text) {
+      document.getElementById("debug").innerHTML = document.getElementById("debug").innerHTML + text;
+    }
+
+    function clearDebug() {
+      document.getElementById("debug").innerHTML = "Debug Info: <a onclick=\"hideDebug()\" href=\"#\"><font size='-3' color='green'>[HIDE]</font></a><br>";
+    }
+
+    function hideDebug() {
+      var url = window.location.href;
+      url = url.replace('&debug=true', '').replace('&debug', '');
+      window.location.href = url;
+    }
+
+    $("#mi-video").on('ended', function() {
+      var $fuente = "";
+      $('#mi-video').find('source').each(function() {
+        $fuente = $(this).attr('src');
+      });
+
+      var index = videos.findIndex(item => "utiles/videos/" + item.url_video == $fuente);
+
+      if (index >= 0 && index < videos.length - 1) {
+        $('source', $('#mi-video')).attr('src', "utiles/videos/" + videos[index + 1].url_video);
+      } else {
+        $('source', $('#mi-video')).attr('src', "utiles/videos/" + videos[0].url_video);
+      }
+      $('#mi-video')[0].load();
+      $('#mi-video')[0].play();
+    });
+
+    $('video source').last().on('error', function() {
+      var $fuente = "";
+      $('#mi-video').find('source').each(function() {
+        $fuente = $(this).attr('src');
+      });
+
+      var index = videos.findIndex(item => "utiles/videos/" + item.url_video == $fuente);
+
+      if (index >= 0 && index < videos.length - 1) {
+        $('source', $('#mi-video')).attr('src', "utiles/videos/" + videos[index + 1].url_video);
+      } else {
+        $('source', $('#mi-video')).attr('src', "utiles/videos/" + videos[0].url_video);
+      }
+      $('#mi-video')[0].load();
+      $('#mi-video')[0].play();
+    });
+  </script>
 
 </body>
-<footer class="page-footer font-small stylish-color-dark pt-4 mb-4" style="bottom: 0; width: 100%;">
 
+<footer class="page-footer font-small stylish-color-dark pt-4 mb-4" style="bottom: 0; width: 100%;">
   <div class="footer-copyright text-center py-3 bg-light mt-3">
     <img src="utiles/logo1.jpg" class="rounded-circle" width="40" height="34">
     <a href="https://www.checkseguro.com/">www.checkseguro.com </a>
     <img src="utiles/icono_instagram.jpg" class="rounded-circle" width="63" height="43">@check_seguro
     <img src="utiles/icono_facebook.jpg" class="rounded-circle" width="50" height="40">Check Seguro
-
   </div>
 </footer>
 
