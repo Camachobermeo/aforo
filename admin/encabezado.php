@@ -29,6 +29,12 @@
                     <a class="nav-link" href="/aforo/admin/totem/listar_totem.php">Totem</a>
                     </li>
                     <li class="nav-item">
+                    <a class="nav-link" href="/aforo/admin/excel/carga-masiva.php">Importar</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/aforo/admin/excel/consulta.php">Exportar</a>
+                    </li>
+                    <li class="nav-item">
                     <a class="nav-link" href="/aforo/admin/personas/listarpersona.php">Personas</a>
                     </li>
                 <li class="nav-item">
