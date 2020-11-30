@@ -26,10 +26,13 @@ if (isset($_POST['subir'])) {
 }
 $url = $archivo;
 try {
-
-    $sentencia = $base_de_datos->prepare("UPDATE persona SET nombre = ?, apellidos = ?, rut = ?, rfid = ?, url_foto = ? WHERE id_persona = ?;");
-    $resultado = $sentencia->execute([strtoupper($nombre), strtoupper($apellidos), strtoupper($rut), strtoupper($rfid), $url, $id]);
-
+    if (isset($_POST['subir'])) {
+        $sentencia = $base_de_datos->prepare("UPDATE persona SET nombre = ?, apellidos = ?, rut = ?, rfid = ?, url_foto = ? WHERE id_persona = ?;");
+        $resultado = $sentencia->execute([strtoupper($nombre), strtoupper($apellidos), strtoupper($rut), strtoupper($rfid), $url, $id]);
+    } else {
+        $sentencia = $base_de_datos->prepare("UPDATE persona SET nombre = ?, apellidos = ?, rut = ?, rfid = ? WHERE id_persona = ?;");
+        $resultado = $sentencia->execute([strtoupper($nombre), strtoupper($apellidos), strtoupper($rut), strtoupper($rfid), $id]);
+    }
     if ($resultado === true) {
         if (isset($archivo) && $archivo != "") {
             $tamano = $_FILES['archivo']['size'];
