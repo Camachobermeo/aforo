@@ -100,7 +100,7 @@ if (isset($_GET["daniado"]))
                                 <td></td>
                             </tr>
                         </table>
-                    <h4> <input name="subir" type="submit"  class="btn btn-success" value="Guardar" /> <a href="listarpersonas.php" class="btn btn-warning">Volver</a>
+                    <h4> <input name="subir" type="submit"  class="btn btn-success" value="Guardar" /> <a href="listarpersona.php" class="btn btn-warning">Volver</a>
 
                 </div>
             </div>
