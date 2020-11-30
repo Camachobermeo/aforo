@@ -24,7 +24,7 @@ if ($_REQUEST)
             <h1>Registrar Persona</h1>
         </div>
         <br>
-        <form action="insertarpersona.php" method="POST">
+        <form enctype="multipart/form-data" action="insertarpersona.php" method="POST">
             <div class="form-row">
                 <div class="col-3"></div>
                 <div class="col-3">
@@ -57,9 +57,32 @@ if ($_REQUEST)
                 </div>
                 <div class="col-3"></div>
             </div>
-            <div class="text-center">
-                <button type="submit" class="btn btn-success">Guardar</button>
+            <div class="container">
+                <div class="text-center">
+                    
+                        <table class="table table-active">
+                            <tr>
+                            <h3><label for="url_foto">Subir Foto</label></h3>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+
+                                <td>
+                                    <h4><input name="archivo" id="persona" type="file" accept="image/png, image/jpeg" />
+                                    </h4>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    <h4> <input name="subir" type="submit"  class="btn btn-success" value="Guardar" /></h4>
+
+                </div>
             </div>
+ 
 
         </form>
     </div>
