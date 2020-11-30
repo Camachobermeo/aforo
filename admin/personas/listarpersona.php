@@ -47,6 +47,7 @@ $personas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 							<th>Apellidos</th>
 							<th>RUT</th>
 							<th>RFID</th>
+							<th>Url Foto</th>
 							<th>Editar</th>
 							<th>Eliminar</th>
 						</tr>
@@ -60,6 +61,7 @@ $personas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 								<td><?php echo $persona->apellidos ?></td>
 								<td><?php echo $persona->rut ?></td>
 								<td><?php echo $persona->rfid ?></td>
+								<td><?php echo $persona->url_foto ?></td>
 								<td><a class="btn btn-success" href="<?php echo "editarpersona.php?id=" . $persona->id_persona ?>">Editar</a></td>
 								<td>
 									<button type="button" class="btn btn-danger" href="<?php echo "eliminarpersona.php?id=" . $persona->id_persona ?>" data-toggle="modal" data-target="#staticBackdrop<?php echo $persona->id_persona ?>">
