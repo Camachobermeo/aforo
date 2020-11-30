@@ -26,7 +26,7 @@ if (isset($_POST['subir'])) {
 }
 $url = $archivo;
 try {
-    if (isset($_POST['subir'])) {
+    if ($url!=null) {
         $sentencia = $base_de_datos->prepare("UPDATE persona SET nombre = ?, apellidos = ?, rut = ?, rfid = ?, url_foto = ? WHERE id_persona = ?;");
         $resultado = $sentencia->execute([strtoupper($nombre), strtoupper($apellidos), strtoupper($rut), strtoupper($rfid), $url, $id]);
     } else {
