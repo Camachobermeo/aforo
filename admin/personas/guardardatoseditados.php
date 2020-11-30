@@ -11,6 +11,15 @@ if (isset($_POST['subir'])) {
         $temp = $_FILES['archivo']['tmp_name'];
         if (move_uploaded_file($temp, '../../utiles/persona/' . $archivo)) {
             chmod('../../utiles/persona/' . $archivo, 0777);
+        }else {
+            header("Location: listarpersona.php");
+        }
+    }else {
+        header("Location: listarpersona.php?fallo=1");
+    }
+}else {
+    header("Location: listarpersona.php?fallo=1");
+}
 
             if (
                 !isset($_POST["nombre"]) ||
@@ -42,6 +51,4 @@ if (isset($_POST['subir'])) {
             } catch (\Throwable $th) {
                 header("Location: editarpersona.php?id=$id&&daniado=1");
             }
-        }
-    }
-}
+
