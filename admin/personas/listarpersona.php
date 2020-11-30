@@ -82,7 +82,7 @@ $personas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 												</div>
 												<div class="modal-footer">
 													<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-													<a class="btn btn-primary" href="<?php echo "eliminarpersona.php?id=" . $persona->id_persona ?>">Aceptar</a>
+													<a class="btn btn-primary" href="<?php echo "eliminarpersona.php?id=" . $persona->id_persona .  "&&nombre=" . $persona->url_foto ?>">Aceptar</a>
 												</div>
 											</div>
 										</div>
