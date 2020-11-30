@@ -138,7 +138,7 @@ foreach ($videos as $aforo) {
 
       var logo_file = "utiles/logo.png";
       if (dict["logo_file"])
-        logo_file = "utiles/" + dict["logo_file"];
+        logo_file = "utiles/logos/" + dict["logo_file"];
 
       var logo_width = 150;
       if (dict["logo_width"] && !isNaN(dict["logo_width"]))
