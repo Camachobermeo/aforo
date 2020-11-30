@@ -28,7 +28,7 @@ $url = $archivo;
 try {
 
     $sentencia = $base_de_datos->prepare("UPDATE persona SET nombre = ?, apellidos = ?, rut = ?, rfid = ?, url_foto = ? WHERE id_persona = ?;");
-    $resultado = $sentencia->execute([strtoupper($nombre), strtoupper($apellidos), strtoupper($rut), strtoupper($rfid), strtoupper($url), $id]);
+    $resultado = $sentencia->execute([strtoupper($nombre), strtoupper($apellidos), strtoupper($rut), strtoupper($rfid), $url, $id]);
 
     if ($resultado === true) {
         if (isset($archivo) && $archivo != "") {

@@ -20,7 +20,7 @@ if (isset($_POST['subir'])) {//para sacar la url
 $url = $archivo;
 try {
     $sentencia = $base_de_datos->prepare("INSERT INTO persona(nombre, apellidos, rut, rfid, url_foto) VALUES (?, ?, ?, ?, ?);");
-    $resultado = $sentencia->execute([strtoupper($nombre), strtoupper($apellidos), strtoupper($rut), strtoupper($rfid), strtoupper($url)]);
+    $resultado = $sentencia->execute([strtoupper($nombre), strtoupper($apellidos), strtoupper($rut), strtoupper($rfid), $url]);
 
     if ($resultado === true) {
         if (isset($archivo) && $archivo != "") {//para guardar
