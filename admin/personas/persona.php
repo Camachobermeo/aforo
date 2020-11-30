@@ -59,8 +59,7 @@ if ($_REQUEST)
             </div>
             <div class="container">
                 <div class="text-center">
-                    <br>
-                    <br>
+                    
                         <table class="table table-active">
                             <tr>
                             <h3><label for="url_foto">Subir Foto</label></h3>
