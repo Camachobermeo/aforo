@@ -59,44 +59,44 @@
           <tr>
             <td><label for="camera2">Cámara 2:</label></td>
             <td><input type="text" class="form-control" id="camera2" name="ip2" oninput="enableCheckboxes('camera2', 'camera2_counter1', 'camera2_counter2')"></td>
-            <td><input type="checkbox" id="camera2_counter1" name="ip2_c1" value="true" checked disabled="true"><label for="camera2_counter1"> Contador 1 </label></td>
-            <td><input type="checkbox" id="camera2_counter2" name="ip2_c2" value="true" disabled="true"><label for="camera2_counter2"> Contador 2 </label></td>
+            <td><input type="checkbox" id="camera2_counter1" name="ip2_c1" value="true" checked><label for="camera2_counter1"> Contador 1 </label></td>
+            <td><input type="checkbox" id="camera2_counter2" name="ip2_c2" value="true"><label for="camera2_counter2"> Contador 2 </label></td>
           </tr>
           <tr>
             <td><label for="camera3">Cámara 3:</label></td>
             <td><input type="text" class="form-control" id="camera3" name="ip3" oninput="enableCheckboxes('camera3', 'camera3_counter1', 'camera3_counter2')"></td>
-            <td><input type="checkbox" id="camera3_counter1" name="ip3_c1" value="true" checked disabled="true"><label for="camera3_counter1"> Contador 1 </label></td>
-            <td><input type="checkbox" id="camera3_counter2" name="ip3_c2" value="true" disabled="true"><label for="camera3_counter2"> Contador 2 </label></td>
+            <td><input type="checkbox" id="camera3_counter1" name="ip3_c1" value="true" checked><label for="camera3_counter1"> Contador 1 </label></td>
+            <td><input type="checkbox" id="camera3_counter2" name="ip3_c2" value="true"><label for="camera3_counter2"> Contador 2 </label></td>
           </tr>
           <tr>
             <td><label for="camera4">Cámara 4:</label></td>
             <td><input type="text" class="form-control" id="camera4" name="ip4" oninput="enableCheckboxes('camera4', 'camera4_counter1', 'camera4_counter2')"></td>
-            <td><input type="checkbox" id="camera4_counter1" name="ip4_c1" value="true" checked disabled="true"><label for="camera4_counter1"> Contador 1 </label></td>
-            <td><input type="checkbox" id="camera4_counter2" name="ip4_c2" value="true" disabled="true"><label for="camera4_counter2"> Contador 2 </label></td>
+            <td><input type="checkbox" id="camera4_counter1" name="ip4_c1" value="true" checked><label for="camera4_counter1"> Contador 1 </label></td>
+            <td><input type="checkbox" id="camera4_counter2" name="ip4_c2" value="true"><label for="camera4_counter2"> Contador 2 </label></td>
           </tr>
           <tr>
             <td><label for="camera5">Cámara 5:</label></td>
             <td><input type="text" class="form-control" id="camera5" name="ip5" oninput="enableCheckboxes('camera5', 'camera5_counter1', 'camera5_counter2')"></td>
-            <td><input type="checkbox" id="camera5_counter1" name="ip5_c1" value="true" checked disabled="true"><label for="camera5_counter1"> Contador 1 </label></td>
+            <td><input type="checkbox" id="camera5_counter1" name="ip5_c1" value="true" checked><label for="camera5_counter1"> Contador 1 </label></td>
             <td><input type="checkbox" id="camera5_counter2" name="ip5_c2" value="true"><label for="camera5_counter2"> Contador 2 </label></td>
           </tr>
           <tr>
             <td><label for="camera6">Cámara 6:</label></td>
             <td><input type="text" class="form-control" id="camera6" name="ip6" oninput="enableCheckboxes('camera6', 'camera6_counter1', 'camera6_counter2')"></td>
-            <td><input type="checkbox" id="camera6_counter1" name="ip6_c1" value="true" checked disabled="true"><label for="camera6_counter1"> Contador 1 </label></td>
-            <td><input type="checkbox" id="camera6_counter2" name="ip6_c2" value="true" disabled="true"><label for="camera6_counter2"> Contador 2 </label></td>
+            <td><input type="checkbox" id="camera6_counter1" name="ip6_c1" value="true" checked><label for="camera6_counter1"> Contador 1 </label></td>
+            <td><input type="checkbox" id="camera6_counter2" name="ip6_c2" value="true"><label for="camera6_counter2"> Contador 2 </label></td>
           </tr>
           <tr>
             <td><label for="camera7">Cámara 7:</label></td>
             <td><input type="text" class="form-control" id="camera7" name="ip7" oninput="enableCheckboxes('camera7', 'camera7_counter1', 'camera7_counter2')"></td>
-            <td><input type="checkbox" id="camera7_counter1" name="ip7_c1" value="true" checked disabled="true"><label for="camera7_counter1"> Contador 1 </label></td>
-            <td><input type="checkbox" id="camera7_counter2" name="ip7_c2" value="true" disabled="true"><label for="camera7_counter2"> Contador 2 </label></td>
+            <td><input type="checkbox" id="camera7_counter1" name="ip7_c1" value="true" checked><label for="camera7_counter1"> Contador 1 </label></td>
+            <td><input type="checkbox" id="camera7_counter2" name="ip7_c2" value="true"><label for="camera7_counter2"> Contador 2 </label></td>
           </tr>
           <tr>
             <td><label for="camera8">Cámara 8:</label></td>
             <td><input type="text" class="form-control" id="camera8" name="ip8" oninput="enableCheckboxes('camera8', 'camera8_counter1', 'camera8_counter2')"></td>
-            <td><input type="checkbox" id="camera8_counter1" name="ip8_c1" value="true" checked disabled="true"><label for="camera8_counter1"> Contador 1 </label></td>
-            <td><input type="checkbox" id="camera8_counter2" name="ip8_c2" value="true" disabled="true"><label for="camera8_counter2"> Contador 2 </label></td>
+            <td><input type="checkbox" id="camera8_counter1" name="ip8_c1" value="true" checked><label for="camera8_counter1"> Contador 1 </label></td>
+            <td><input type="checkbox" id="camera8_counter2" name="ip8_c2" value="true"><label for="camera8_counter2"> Contador 2 </label></td>
           </tr>
           <tr>
             <td><label for="max">Límite máximo:</label></td>
