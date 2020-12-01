@@ -28,6 +28,10 @@ if ($_REQUEST)
                     <h1>Subir Logos</h1>
                     <br>
                     <br>
+                    <div id="cargando" hidden class="spinner-border text-success" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </div>
+                    <br>
                     <br>
                     <br>
                     <br>
@@ -44,7 +48,7 @@ if ($_REQUEST)
                                 <td></td>
                                 <td>
                                     <h3><input name="archivo" id="logo" type="file" accept="image/png, image/jpeg" />
-                                        <input name="subir" type="submit" value="Subir archivo" /></h3>
+                                        <input name="subir" type="submit" onclick="activarCargando()" value="Subir archivo" /></h3>
                                 </td>
                                 <td></td>
                             </tr>
@@ -53,7 +57,13 @@ if ($_REQUEST)
 
                 </div>
             </div>
+            <script>
+                function activarCargando() {
+                    document.getElementById("cargando").hidden = false;
+                }
+            </script>
         </body>
-        <?php include_once "../../pie.php" ?>
+    </div>
 
 </html>
+<?php include_once "../../pie.php" ?>

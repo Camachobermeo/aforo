@@ -27,6 +27,7 @@ $fin = "";
       <button type="submit" class="btn btn-success">Exportar</button>
     </form>
   </div>
+  
 </body>
 <br><br><br>
 <?php include_once "../../pie.php" ?>

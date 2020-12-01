@@ -100,13 +100,24 @@ if (isset($_GET["daniado"]))
                                 <td></td>
                             </tr>
                         </table>
-                    <h4> <input name="subir" type="submit"  class="btn btn-success" value="Guardar" /> <a href="listarpersona.php" class="btn btn-warning">Volver</a>
+                    <h4> <input name="subir" type="submit" onclick="activarCargando()" class="btn btn-success" value="Guardar" /> <a href="listarpersona.php" class="btn btn-warning">Volver</a>
 
                 </div>
-            </div>
+			</div>
+			<br>
+			<div class="text-center">
+      <div id="cargando" hidden class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
 		</form>
 	</div>
 	</div>
+	<script>
+    function activarCargando() {
+      document.getElementById("cargando").hidden = false;
+    }
+  </script>
 </body>
 <br><br><br>
 <?php include_once "../../pie.php" ?>

@@ -78,13 +78,23 @@ if ($_REQUEST)
                                 <td></td>
                             </tr>
                         </table>
-                    <h4> <input name="subir" type="submit"  class="btn btn-success" value="Guardar" /></h4>
+                    <h4> <input name="subir" type="submit" onclick="activarCargando()"  class="btn btn-success" value="Guardar" /></h4>
 
                 </div>
             </div>
- 
-
+            <br>
+            <br>
+            <div class="text-center">
+      <div id="cargando" hidden class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
         </form>
+        <script>
+    function activarCargando() {
+      document.getElementById("cargando").hidden = false;
+    }
+  </script>
     </div>
     <br><br><br>
     <?php include_once "../../pie.php" ?>

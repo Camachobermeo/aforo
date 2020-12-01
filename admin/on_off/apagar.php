@@ -27,11 +27,21 @@ if ($_REQUEST) {
     ?>
     <h1 class="text-center">Apagar</h1>
     <br>
+    <div class="text-center">
+      <div id="cargando" hidden class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <br>
     <form action="apagar_funcion.php" method="POST" class="text-center">
-      <button type="submit" class="btn btn-success">Apagar</button>
+      <button type="submit" onclick="activarCargando()" class="btn btn-success">Apagar</button>
     </form>
   </div>
-
+  <script>
+    function activarCargando() {
+      document.getElementById("cargando").hidden = false;
+    }
+  </script>
 </body>
 <br><br><br>
 <?php include_once "../../pie.php" ?>
