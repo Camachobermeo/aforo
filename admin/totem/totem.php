@@ -56,11 +56,21 @@ if ($_REQUEST)
                 <div class="col-2"></div>
             </div>
             <div class="text-center">
-                <button type="submit" class="btn btn-success">Guardar</button>
+                <button type="submit" onclick="activarCargando()" class="btn btn-success">Guardar</button>
             </div>
-
+<br>
+<div class="text-center">
+      <div id="cargando" hidden class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
         </form>
     </div>
+    <script>
+    function activarCargando() {
+      document.getElementById("cargando").hidden = false;
+    }
+  </script>
     <br><br><br>
     <?php include_once "../../pie.php" ?>
 
