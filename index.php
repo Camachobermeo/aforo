@@ -24,12 +24,12 @@ foreach ($videos as $aforo) {
 
   <div class="row m-0">
     <div class="col-md-4">
-      <img id="logo" src="utiles/logo.png" width="150" style="position: absolute; left: 0; padding: 10px;"></img>
+      <img src="utiles/logo.png" width="150" style="position: absolute; left: 0; padding: 10px;"></img>
     </div>
     <div class="col-md-4">
     </div>
     <div class="col-md-4">
-      <img src="utiles/ht-logo.png" width="180" style="position: absolute; right: 0; padding: 10px;" class="mt-3"></img>
+      <img id="logo" src="utiles/ht-logo.png" width="180" style="position: absolute; right: 0; padding: 10px;" class="mt-3"></img>
     </div>
   </div>
   <br> <br> <br> <br>
@@ -136,7 +136,7 @@ foreach ($videos as $aforo) {
       if (dict["max"] && !isNaN(dict["max"]))
         max = Number(dict["max"]);
 
-      var logo_file = "utiles/logo.png";
+      var logo_file = "utiles/ht-logo";
       if (dict["logo_file"])
         logo_file = "utiles/logos/" + dict["logo_file"];
 
