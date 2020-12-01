@@ -24,7 +24,7 @@ foreach ($videos as $aforo) {
 
   <div class="row m-0">
     <div class="col-md-4">
-      <img src="utiles/logo1.png" width="150" style="position: absolute; left: 0; padding: 10px;"></img>
+      <img src="utiles/logo1.jpg" width="150" style="position: absolute; left: 0; padding: 10px;"></img>
     </div>
     <div class="col-md-4">
     </div>

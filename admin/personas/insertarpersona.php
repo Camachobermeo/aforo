@@ -33,8 +33,8 @@ try {
 
         header("Location: listarpersona.php?guardado=1");
     } else {
-        header("Location: persona.php?fallo=1");
+        header("Location: persona.php?fallo=ErrorAlGuardarPersona");
     }
 } catch (\Throwable $th) {
-    header("Location: persona.php?fallo=1");
+    header("Location: persona.php?fallo=ErrorDesconocidoEnBaseDeDatos");
 }
