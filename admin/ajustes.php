@@ -2,6 +2,9 @@
 
 <head>
   <?php
+  include_once "../utiles/base_de_datos.php";
+  $sentencia = $base_de_datos->query("select * from logo");
+  $logos = $sentencia->fetchAll(PDO::FETCH_OBJ);
   $guardado = false;
   if ($_REQUEST)
     $guardado = $_REQUEST['exito'];
@@ -15,9 +18,9 @@
     }
 
     function enableCheckboxes(textbox, checkbox1, checkbox2) {
-      var text = document.getElementById(textbox).value;
-      document.getElementById(checkbox1).disabled = (text.length == 0);
-      document.getElementById(checkbox2).disabled = (text.length == 0);
+      // var text = document.getElementById(textbox).value;
+      // document.getElementById(checkbox1).disabled = (text.length == 0);
+      // document.getElementById(checkbox2).disabled = (text.length == 0);
     }
   </script>
 </head>
@@ -118,7 +121,14 @@
           </tr>
           <tr>
             <td><label for="logo_file">Archivo de logotipo:</label></td>
-            <td><input type="text" class="form-control" id="logo_file" name="logo_file"></td>
+            <td>
+              <select class="form-control" id="logo_file" name="logo_file">
+                <?php foreach ($logos as $logo) { ?>
+                  <option value="<?php echo $logo->url_logo ?>"><?php echo $logo->url_logo ?></option>
+                <?php } ?>
+              </select>
+              <!-- <input type="text" class="form-control" id="logo_file" name="logo_file"> -->
+            </td>
             <td><label for="logo_width">Ancho (px):</label></td>
             <td><input type="text" class="form-control" id="logo_width" name="logo_width"></td>
           </tr>

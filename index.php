@@ -21,26 +21,57 @@ foreach ($videos as $aforo) {
 ?>
 
 <body class="p-2 mt-1">
-
+  <!-- Logos, reloj y tempertura -->
   <div class="row m-0">
     <div class="col-md-4">
       <img src="utiles/logo1.jpg" width="150" style="position: absolute; left: 0; padding: 10px;"></img>
     </div>
+
     <div class="col-md-4">
+      <br><br>
+      <div id="reloj"></div>
+      <h3 class='text-center' style='font-size: 40px' id="tambiente"> </h3>
+      <input type="text" id="idRegistro" hidden>
     </div>
+
     <div class="col-md-4">
       <img id="logo" src="utiles/logo.png" width="180" style="position: absolute; right: 0; padding: 10px;" class="mt-3"></img>
     </div>
   </div>
-  <br> <br> <br> <br>
+
+  <!-- Videos -->
   <div class="row m-0 mt-5">
     <video id="mi-video" autoplay muted width="100%" height="630px" class="d-block" style="border: 0;">
       <source src="utiles/videos/<?php echo $url ?>" type="video/mp4">
     </video>
   </div>
-  <br>
-  <br>
-  <br>
+
+  <!-- Cuerpo donde aparecen los nombre que entran y salen -->
+  <div class="mt-5">
+    <br><br>
+    <div id="cuerpo"></div>
+  </div>
+
+  <!-- Avisos -->
+  <div id="aviso" hidden class="mt-4">
+    <div class="text-center">
+      <ul>
+        <li style="list-style: none;">
+          <h1><b> ① </b>Registra tu asistencia</h1>
+        </li>
+        <li style="list-style: none;">
+          <h1><b> ② </b>Checkea tu temperatura</h1>
+        </li>
+        <li style="list-style: none;">
+          <h1><b> ③ </b> Desinfecta tus manos</h1>
+        </li>
+      </ul>
+      <h1>... Todo sin contacto</h1>
+      <h1>#cuidemonosentretodos</h1><br>
+    </div>
+  </div>
+
+  <!-- Ventana con colores -->
   <table class="container mb-5" id="tabla" style="border-radius: 10%;">
     <tr>
       <td>
@@ -72,6 +103,7 @@ foreach ($videos as $aforo) {
   </table>
 
   <script src="params.dat"></script>
+  
   <script>
     // initialization //////////////////////////////////////////
     var videos = <?php echo json_encode($videos); ?>;
@@ -293,6 +325,19 @@ foreach ($videos as $aforo) {
       $('#mi-video')[0].load();
       $('#mi-video')[0].play();
     });
+
+
+    setInterval(function() {
+      var idRegistro = document.getElementById("idRegistro").value;
+      var cuerpo = document.getElementById("cuerpo").innerHTML;
+      $("#cuerpo").load("funciones.php", {
+        'idRegistro': idRegistro,
+        'cuerpo': cuerpo
+      });
+    }, 300);
+    setInterval(function() {
+      location.reload();
+    }, 500000);
   </script>
 
 </body>
