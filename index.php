@@ -91,6 +91,7 @@ foreach ($videos as $aforo) {
     // initialization //////////////////////////////////////////
     var videos = <?php echo json_encode($videos); ?>;
     var dict = parseParams();
+    actualizarCuerpo();
     updateData();
 
     // functions //////////////////////////////////////////
@@ -319,18 +320,16 @@ foreach ($videos as $aforo) {
       $('#mi-video')[0].play();
     });
 
-    setInterval(function() {
+    function actualizarCuerpo(){
       var idRegistro = document.getElementById("idRegistro").value;
       var cuerpo = document.getElementById("cuerpo").innerHTML;
       $("#cuerpo").load("funciones.php", {
         'idRegistro': idRegistro,
         'cuerpo': cuerpo
       });
-    }, 300);
+      setTimeout(actualizarCuerpo, 300);
+    };
 
-    setInterval(function() {
-      location.reload();
-    }, 500000);
   </script>
 
 </body>
