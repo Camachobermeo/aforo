@@ -31,15 +31,7 @@ if ($data) {
   }
 
   if ($data->id_registro == (int)$id_registro_anterior) {
-    echo "
-      <script type=\"text/javascript\">
-      document.getElementById('aviso').hidden=true;
-      </script>   ";
     if ($debeBorrar) {
-      echo "
-      <script type=\"text/javascript\">
-      document.getElementById('aviso').hidden=false;
-      </script>   ";
     } else {
       echo "
       <script type=\"text/javascript\">
@@ -67,11 +59,6 @@ if ($data) {
         break;
     }
   }
-} else {
-  echo "
-      <script type=\"text/javascript\">
-      document.getElementById('aviso').hidden=false;
-      </script>   ";
 }
 
 if ($data2) {

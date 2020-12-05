@@ -52,58 +52,41 @@ foreach ($videos as $aforo) {
     <div id="cuerpo"></div>
   </div>
 
-  <!-- Avisos -->
-  <div id="aviso" hidden class="mt-4">
-    <div class="text-center">
-      <ul>
-        <li style="list-style: none;">
-          <h1><b> ① </b>Registra tu asistencia</h1>
-        </li>
-        <li style="list-style: none;">
-          <h1><b> ② </b>Checkea tu temperatura</h1>
-        </li>
-        <li style="list-style: none;">
-          <h1><b> ③ </b> Desinfecta tus manos</h1>
-        </li>
-      </ul>
-      <h1>... Todo sin contacto</h1>
-      <h1>#cuidemonosentretodos</h1><br>
-    </div>
-  </div>
-
   <!-- Ventana con colores -->
-  <table class="container mb-5" id="tabla" style="border-radius: 10%;">
-    <tr>
-      <td>
-        <table>
-          <tr>
-            <td width=50% class="text-center pt-4">
-              <div id="header" style="font-size: 300%;">Bienvenido!</div><br><br>
-              <div style="font-size: 200%;">Aforo Actual:</div>
-              <strong>
-                <div id="div_total" style="font-size: 850%;">0</div>
-              </strong>
-              <div style="font-size: 200%;">Aforo Permitido:</div>
-              <div id="div_max" style="font-size: 600%;">100</div><br>
-              <strong>
-                <div id="msg" style="font-size: 200%;"></div>
-              </strong>
-            </td>
-            <td width=50%><img id="sign" src="utiles/go.png" width="85%"></td>
-          </tr>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <div id="marquee">
-          <div id="scrolling"></div>
-        </div><br>
-        <div id="debug" style="font-size: 80%;"></div>
-  </table>
+  <?php for ($i = 1; $i <= 8; $i++) { ?>
+    <table class="container mb-5" id="tabla<?php echo $i ?>" style="border-radius: 10%;">
+      <tr>
+        <td>
+          <table>
+            <tr>
+              <td width=50% class="text-center pt-4">
+                <div id="header" style="font-size: 300%;">Bienvenido!</div><br><br>
+                <div style="font-size: 200%;">Aforo Actual Cámara : <?php echo $i ?></div>
+                <strong>
+                  <div id="div_total<?php echo $i ?>" style="font-size: 850%;">0</div>
+                </strong>
+                <div style="font-size: 200%;">Aforo Permitido:</div>
+                <div id="div_max" style="font-size: 600%;">100</div><br>
+                <strong>
+                  <div id="msg<?php echo $i ?>" style="font-size: 200%;"></div>
+                </strong>
+              </td>
+              <td width=50%><img id="sign<?php echo $i ?>" src="utiles/go.png" width="85%"></td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <div id="marquee">
+            <div id="scrolling"></div>
+          </div><br>
+          <div id="debug" style="font-size: 80%;"></div>
+    </table>
+  <?php } ?>
 
   <script src="params.dat"></script>
-  
+
   <script>
     // initialization //////////////////////////////////////////
     var videos = <?php echo json_encode($videos); ?>;
@@ -113,7 +96,6 @@ foreach ($videos as $aforo) {
     // functions //////////////////////////////////////////
     function getTotal(ip, user, pass, counter, debug) {
       var xmlHttp = new XMLHttpRequest();
-      // xmlHttp.open("GET", "http://190.160.219.189:8000/init-cgi/pw_init.cgi?msubmenu=statuscheck&action=view&date=1606509030635", false, user, pass); // false for synchronous request
       xmlHttp.open("GET", "http://" + ip + "/stw-cgi/eventsources.cgi?msubmenu=peoplecount&action=check&Channel=0", false, user, pass); // false for synchronous request
       xmlHttp.withCredentials = true;
       xmlHttp.send(null);
@@ -179,9 +161,10 @@ foreach ($videos as $aforo) {
       document.getElementById("logo").src = logo_file;
       document.getElementById("logo").width = logo_width;
 
-      var total = 0;
+      var total = [];
 
       for (var i = 1; i <= 8; i++) {
+        total[i] = 0;
         if (dict["camera" + i]) {
           var ip = dict["camera" + i];
           var c1 = dict["camera" + i + "_counter1"];
@@ -193,13 +176,17 @@ foreach ($videos as $aforo) {
           if (debug)
             printDebug("IP " + ip);
 
-          if (c1)
-            total += getTotal(ip, u, p, 1, debug);
+          try {
+            if (c1)
+              total[i] += getTotal(ip, u, p, 1, debug);
 
-          if (c2)
-            total += getTotal(ip, u, p, 2, debug);
+            if (c2)
+              total[i] += getTotal(ip, u, p, 2, debug);
+          } catch (error) {
+            document.getElementById("tabla" + i) ? document.getElementById("tabla" + i).hidden = true : null;
+          }
 
-          if (debug && !isNaN(total))
+          if (debug && !isNaN(total[i]))
             printDebug(" | <a onclick=\"resetCounters('" + ip + "', '" + u + "', '" + p + "')\" href=\"#\"><font size='-3' color='red'>RESET</font></a><br>");
         }
       }
@@ -207,9 +194,6 @@ foreach ($videos as $aforo) {
       var correction = 0;
       if (dict["correction"] && !isNaN(dict["correction"]))
         correction = Number(dict["correction"]);
-
-      if (debug && !isNaN(total))
-        printDebug("Correction: " + correction + "<br>");
 
       var header = "Bienvenido!";
       if (dict["header"])
@@ -229,45 +213,54 @@ foreach ($videos as $aforo) {
       if (dict["scrolling"])
         msg_scrolling = dict["scrolling"];
 
-      total += correction;
+      for (var i = 1; i <= 8; i++) {
+        var refresh = 5;
+        if (dict["refresh"] && !isNaN(dict["refresh"]))
+          refresh = Number(dict["refresh"]);
 
-      if (total < 0 && dict["negative"] == false)
-        total = 0;
+        if (debug && !isNaN(total[i]))
+          printDebug("Correction: " + correction + "<br>");
 
-      var refresh = 5;
-      if (dict["refresh"] && !isNaN(dict["refresh"]))
-        refresh = Number(dict["refresh"]);
+        total[i] += correction;
 
-      if (isNaN(total)) {
-        document.getElementById("div_total").innerHTML = "N/A";
-        document.getElementById("div_max").innerHTML = "N/A";
-        document.getElementById("sign").style.display = "none";
-        setTimeout(updateData, refresh * 1000);
-        return;
+        if (total[i] < 0 && dict["negative"] == false)
+          total[i] = 0;
+
+        if (isNaN(total[i])) {
+          document.getElementById("div_total" + i).innerHTML = "N/A";
+          document.getElementById("div_max").innerHTML = "N/A";
+          document.getElementById("sign" + i).style.display = "none";
+          setTimeout(updateData, refresh * 1000);
+          return;
+        }
+
+        document.getElementById("div_total" + i).innerHTML = total[i].toString();
+        document.getElementById("div_max").innerHTML = max.toString();
+        document.getElementById("sign" + i).style.display = "";
+        if (total[i] >= max) {
+          document.getElementById("tabla" + i).style.background = "#f0c0c0";
+          document.getElementById("div_total" + i).style.color = "red";
+          document.getElementById("msg" + i).innerHTML = msg_stop;
+          document.getElementById("msg" + i).style.color = "red";
+          document.getElementById("sign" + i).src = "utiles/stop.png";
+        } else {
+          document.getElementById("tabla" + i).style.background = "#c0f0c0";
+          document.getElementById("div_total" + i).style.color = "green";
+          document.getElementById("msg" + i).innerHTML = msg_go;
+          document.getElementById("msg" + i).style.color = "green";
+          document.getElementById("sign" + i).src = "utiles/go.png";
+        }
+
+        if (dict["camera" + i]) {
+          document.getElementById("tabla" + i) ? document.getElementById("tabla" + i).hidden = false : null;
+        } else {
+          document.getElementById("tabla" + i) ? document.getElementById("tabla" + i).hidden = true : null;
+        }
       }
 
-      document.getElementById("div_total").innerHTML = total.toString();
-      document.getElementById("div_max").innerHTML = max.toString();
-      document.getElementById("sign").style.display = "";
-      if (total >= max) {
-        // document.body.style.backgroundColor = "#f0c0c0";
-        document.getElementById("tabla").style.background = "#f0c0c0";
-        // document.getElementById("marquee").style.background = "#f0c0c0";
-        document.getElementById("div_total").style.color = "red";
-        document.getElementById("msg").innerHTML = msg_stop;
-        document.getElementById("msg").style.color = "red";
-        document.getElementById("sign").src = "utiles/stop.png";
-      } else {
-        // document.body.style.backgroundColor = "#c0f0c0";
-        document.getElementById("tabla").style.background = "#c0f0c0";
-        // document.getElementById("marquee").style.background = "#c0f0c0";
-        document.getElementById("div_total").style.color = "green";
-        document.getElementById("msg").innerHTML = msg_go;
-        document.getElementById("msg").style.color = "green";
-        document.getElementById("sign").src = "utiles/go.png";
-      }
       document.getElementById("scrolling").innerHTML = msg_scrolling;
       setTimeout(updateData, refresh * 1000);
+
     }
 
     function resetCounters(ip, user, pass) {
@@ -326,7 +319,6 @@ foreach ($videos as $aforo) {
       $('#mi-video')[0].play();
     });
 
-
     setInterval(function() {
       var idRegistro = document.getElementById("idRegistro").value;
       var cuerpo = document.getElementById("cuerpo").innerHTML;
@@ -335,6 +327,7 @@ foreach ($videos as $aforo) {
         'cuerpo': cuerpo
       });
     }, 300);
+
     setInterval(function() {
       location.reload();
     }, 500000);

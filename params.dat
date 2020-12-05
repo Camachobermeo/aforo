@@ -1,7 +1,7 @@
 data="" +
 "$user=totem" +
 "$pass=Melli123" +
-"$camera1=192.168.0.103" +
+"$camera1=" +
 "$camera1_counter1=true" +
 "$camera1_counter2=" +
 "$camera2=192.168.0.102" +
