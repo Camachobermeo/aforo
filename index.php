@@ -70,7 +70,7 @@ foreach ($videos as $aforo) {
           </strong>
         </div>
         <div class="col-md-4 text-center">
-          <img class="pt-5" id="sign<?php echo $i ?>" src="utiles/go.png" width="30%">
+          <img class="pt-4" id="sign<?php echo $i ?>" src="utiles/go.png" width="30%">
         </div>
       </div>
       <div id="marquee">
