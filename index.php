@@ -24,7 +24,7 @@ foreach ($videos as $aforo) {
   <!-- Logos, reloj y tempertura -->
   <div class="row m-0">
     <div class="col-md-4">
-      <img src="utiles/logo1.jpg" width="150" style="position: absolute; left: 0; padding: 10px;"></img>
+      <img src="utiles/logo1.jpg" width="180" style="position: absolute; left: 0; padding: 20px;"></img>
     </div>
 
     <div class="col-md-4">
@@ -61,12 +61,12 @@ foreach ($videos as $aforo) {
             <tr>
               <td width=50% class="text-center pt-4">
                 <div id="header" style="font-size: 300%;">Bienvenido!</div><br><br>
-                <div style="font-size: 200%;">Aforo Actual Cámara : <?php echo $i ?></div>
+                <div style="font-size: 200%;" id="aforoactual<?php echo $i ?>"></div>
                 <strong>
                   <div id="div_total<?php echo $i ?>" style="font-size: 850%;">0</div>
                 </strong>
-                <div style="font-size: 200%;">Aforo Permitido:</div>
-                <div id="div_max" style="font-size: 600%;">100</div><br>
+                <div style="font-size: 200%;" id="camara<?php echo $i ?>"></div>
+                <div id="div_max<?php echo $i ?>" style="font-size: 600%;">100</div><br>
                 <strong>
                   <div id="msg<?php echo $i ?>" style="font-size: 200%;"></div>
                 </strong>
@@ -147,10 +147,6 @@ foreach ($videos as $aforo) {
       if (debug)
         clearDebug();
 
-      var max = 50;
-      if (dict["max"] && !isNaN(dict["max"]))
-        max = Number(dict["max"]);
-
       var logo_file = "utiles/logo.png";
       if (dict["logo_file"])
         logo_file = "utiles/logos/" + dict["logo_file"];
@@ -163,6 +159,7 @@ foreach ($videos as $aforo) {
       document.getElementById("logo").width = logo_width;
 
       var total = [];
+      var max = [];
 
       for (var i = 1; i <= 8; i++) {
         total[i] = 0;
@@ -222,6 +219,10 @@ foreach ($videos as $aforo) {
         if (debug && !isNaN(total[i]))
           printDebug("Correction: " + correction + "<br>");
 
+        max[i] = 50;
+        if (dict["max" + i] && !isNaN(dict["max" + i]))
+          max[i] = Number(dict["max" + i]);
+
         total[i] += correction;
 
         if (total[i] < 0 && dict["negative"] == false)
@@ -229,16 +230,18 @@ foreach ($videos as $aforo) {
 
         if (isNaN(total[i])) {
           document.getElementById("div_total" + i).innerHTML = "N/A";
-          document.getElementById("div_max").innerHTML = "N/A";
+          document.getElementById("div_max" + i).innerHTML = "N/A";
           document.getElementById("sign" + i).style.display = "none";
           setTimeout(updateData, refresh * 1000);
           return;
         }
 
         document.getElementById("div_total" + i).innerHTML = total[i].toString();
-        document.getElementById("div_max").innerHTML = max.toString();
+        document.getElementById("div_max" + i).innerHTML = max[i].toString();
+        document.getElementById("camara" + i).innerHTML = "Aforo permitido en " + dict["nombre" + i] + " :";
+        document.getElementById("aforoactual" + i).innerHTML = "Aforo actual en " + dict["nombre" + i] + " :";
         document.getElementById("sign" + i).style.display = "";
-        if (total[i] >= max) {
+        if (total[i] >= max[i]) {
           document.getElementById("tabla" + i).style.background = "#f0c0c0";
           document.getElementById("div_total" + i).style.color = "red";
           document.getElementById("msg" + i).innerHTML = msg_stop;
@@ -320,7 +323,7 @@ foreach ($videos as $aforo) {
       $('#mi-video')[0].play();
     });
 
-    function actualizarCuerpo(){
+    function actualizarCuerpo() {
       var idRegistro = document.getElementById("idRegistro").value;
       var cuerpo = document.getElementById("cuerpo").innerHTML;
       $("#cuerpo").load("funciones.php", {
@@ -329,12 +332,11 @@ foreach ($videos as $aforo) {
       });
       setTimeout(actualizarCuerpo, 300);
     };
-
   </script>
 
 </body>
 
-<footer class="page-footer font-small stylish-color-dark pt-4 mb-4" style="bottom: 0; width: 100%;">
+<footer class="page-footer font-small stylish-color-dark pt-4 mb-4" style="bottom: 0; width: 100%; position: fixed;">
   <div class="footer-copyright text-center py-3 bg-light mt-3">
     <img src="utiles/logo1.jpg" class="rounded-circle" width="40" height="34">
     <a href="https://www.checkseguro.com/">www.checkseguro.com </a>
