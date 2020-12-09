@@ -55,31 +55,31 @@ foreach ($videos as $aforo) {
   <!-- Ventana con colores -->
   <?php for ($i = 1; $i <= 8; $i++) { ?>
     <div class="mb-5" id="tabla<?php echo $i ?>">
-      <div id="aforo<?php echo $i ?>" class="text-center" style="font-size: 300%;">Bienvenido!</div>
+      <div id="aforo<?php echo $i ?>" class="text-center" style="font-size: 200%;">Bienvenido!</div>
       <div class="row">
         <div class="col-md-4 text-center">
-          <div style="font-size: 200%;">Actual: </div>
+          <div style="font-size: 150%;">Actual: </div>
           <strong>
-            <div id="div_total<?php echo $i ?>" style="font-size: 850%;">0</div>
+            <div id="div_total<?php echo $i ?>" style="font-size: 500%;">0</div>
           </strong>
         </div>
         <div class="col-md-4 text-center">
-          <div style="font-size: 200%;">Permitido: </div>
+          <div style="font-size: 150%;">Permitido: </div>
           <strong>
-            <div id="div_max<?php echo $i ?>" style="font-size: 850%;">100</div>
+            <div id="div_max<?php echo $i ?>" style="font-size: 500%;">100</div>
           </strong>
         </div>
         <div class="col-md-4 text-center">
-          <img class="pt-5" id="sign<?php echo $i ?>" src="utiles/go.png" width="50%">
+          <img class="pt-5" id="sign<?php echo $i ?>" src="utiles/go.png" width="30%">
         </div>
       </div>
-      <strong>
-        <div class="text-center" id="msg<?php echo $i ?>" style="font-size: 200%;"></div>
-      </strong>
       <div id="marquee">
         <div id="scrolling"></div>
-      </div><br>
-      <div id="debug" style="font-size: 80%;"></div>
+      </div>
+      <strong class="pb-2">
+        <div class="text-center" id="msg<?php echo $i ?>" style="font-size: 150%;"></div>
+      </strong>
+      <div id="debug" style="font-size: 40%;"></div>
     </div>
   <?php } ?>
 
