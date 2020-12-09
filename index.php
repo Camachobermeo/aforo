@@ -54,35 +54,33 @@ foreach ($videos as $aforo) {
 
   <!-- Ventana con colores -->
   <?php for ($i = 1; $i <= 8; $i++) { ?>
-    <table class="container mb-5" id="tabla<?php echo $i ?>" style="border-radius: 10%;">
-      <tr>
-        <td>
-          <table>
-            <tr>
-              <td width=50% class="text-center pt-4">
-                <div id="header" style="font-size: 300%;">Bienvenido!</div><br><br>
-                <div style="font-size: 200%;" id="aforoactual<?php echo $i ?>"></div>
-                <strong>
-                  <div id="div_total<?php echo $i ?>" style="font-size: 850%;">0</div>
-                </strong>
-                <div style="font-size: 200%;" id="camara<?php echo $i ?>"></div>
-                <div id="div_max<?php echo $i ?>" style="font-size: 600%;">100</div><br>
-                <strong>
-                  <div id="msg<?php echo $i ?>" style="font-size: 200%;"></div>
-                </strong>
-              </td>
-              <td width=50%><img id="sign<?php echo $i ?>" src="utiles/go.png" width="85%"></td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <div id="marquee">
-            <div id="scrolling"></div>
-          </div><br>
-          <div id="debug" style="font-size: 80%;"></div>
-    </table>
+    <div class="mb-5" id="tabla<?php echo $i ?>">
+      <div id="aforo<?php echo $i ?>" class="text-center" style="font-size: 300%;">Bienvenido!</div>
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <div style="font-size: 200%;">Actual: </div>
+          <strong>
+            <div id="div_total<?php echo $i ?>" style="font-size: 850%;">0</div>
+          </strong>
+        </div>
+        <div class="col-md-4 text-center">
+          <div style="font-size: 200%;">Permitido: </div>
+          <strong>
+            <div id="div_max<?php echo $i ?>" style="font-size: 850%;">100</div>
+          </strong>
+        </div>
+        <div class="col-md-4 text-center">
+          <img class="pt-5" id="sign<?php echo $i ?>" src="utiles/go.png" width="50%">
+        </div>
+      </div>
+      <strong>
+        <div class="text-center" id="msg<?php echo $i ?>" style="font-size: 200%;"></div>
+      </strong>
+      <div id="marquee">
+        <div id="scrolling"></div>
+      </div><br>
+      <div id="debug" style="font-size: 80%;"></div>
+    </div>
   <?php } ?>
 
   <script src="params.dat"></script>
@@ -197,7 +195,7 @@ foreach ($videos as $aforo) {
       if (dict["header"])
         header = dict["header"];
 
-      document.getElementById("header").innerHTML = header;
+      // document.getElementById("header").innerHTML = header;
 
       var msg_stop = "Por Favor Espere...!";
       if (dict["stop"])
@@ -238,8 +236,7 @@ foreach ($videos as $aforo) {
 
         document.getElementById("div_total" + i).innerHTML = total[i].toString();
         document.getElementById("div_max" + i).innerHTML = max[i].toString();
-        document.getElementById("camara" + i).innerHTML = "Aforo permitido en " + dict["nombre" + i] + " :";
-        document.getElementById("aforoactual" + i).innerHTML = "Aforo actual en " + dict["nombre" + i] + " :";
+        document.getElementById("aforo" + i).innerHTML = "Aforo " + dict["nombre" + i] + " :";
         document.getElementById("sign" + i).style.display = "";
         if (total[i] >= max[i]) {
           document.getElementById("tabla" + i).style.background = "#f0c0c0";
