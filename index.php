@@ -52,6 +52,10 @@ foreach ($videos as $aforo) {
     <div id="cuerpo"></div>
   </div>
 
+  <div id="marquee" class="pb-4">
+    <div id="scrolling"></div>
+  </div>
+
   <!-- Ventana con colores -->
   <?php for ($i = 1; $i <= 8; $i++) { ?>
     <div class="mb-5" id="tabla<?php echo $i ?>">
@@ -72,9 +76,6 @@ foreach ($videos as $aforo) {
         <div class="col-md-4 text-center">
           <img class="pt-4" id="sign<?php echo $i ?>" src="utiles/go.png" width="30%">
         </div>
-      </div>
-      <div id="marquee">
-        <div id="scrolling"></div>
       </div>
       <strong class="pb-2">
         <div class="text-center" id="msg<?php echo $i ?>" style="font-size: 150%;"></div>
