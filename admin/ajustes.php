@@ -54,12 +54,6 @@
             <td></td>
           </tr>
           <tr>
-            <td><label for="correction">Corrección:</label></td>
-            <td><input type="text" class="form-control" id="correction" name="correction"></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
             <td><label for="refresh">Actualizar:</label></td>
             <td><input type="text" class="form-control" id="refresh" name="refresh"></td>
             <td>segundos.</td>
@@ -108,6 +102,7 @@
             <th>Nombre</th>
             <th>Ip</th>
             <th>Maximo</th>
+            <th>Correccion</th>
             <th>Contador 1</th>
             <th>Contador 2</th>
           </tr>
@@ -117,6 +112,7 @@
               <td><input type="text" class="form-control" id="nombre<?php echo $i ?>" name="nombre<?php echo $i ?>"></td>
               <td><input type="text" class="form-control" id="camera<?php echo $i ?>" name="ip<?php echo $i ?>"></td>
               <td><input type="text" class="form-control" id="max<?php echo $i ?>" name="max<?php echo $i ?>"></td>
+              <td><input type="text" class="form-control" id="correction<?php echo $i ?>" name="correction<?php echo $i ?>"></td>
               <td><input type="checkbox" id="camera<?php echo $i ?>_counter1" name="ip<?php echo $i ?>_c1" value="true"><label for="camera<?php echo $i ?>_counter1"> Contador 1 </label></td>
               <td><input type="checkbox" id="camera<?php echo $i ?>_counter2" name="ip<?php echo $i ?>_c2" value="true"><label for="camera<?php echo $i ?>_counter2"> Contador 2 </label></td>
             </tr>

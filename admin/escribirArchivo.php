@@ -40,6 +40,14 @@ if ($_REQUEST) {
 "$max6=' . $_REQUEST['max6'] . '" +
 "$max7=' . $_REQUEST['max7'] . '" +
 "$max8=' . $_REQUEST['max8'] . '" +
+"$correction1=' . $_REQUEST['correction1'] . '" +
+"$correction2=' . $_REQUEST['correction2'] . '" +
+"$correction3=' . $_REQUEST['correction3'] . '" +
+"$correction4=' . $_REQUEST['correction4'] . '" +
+"$correction5=' . $_REQUEST['correction5'] . '" +
+"$correction6=' . $_REQUEST['correction6'] . '" +
+"$correction7=' . $_REQUEST['correction7'] . '" +
+"$correction8=' . $_REQUEST['correction8'] . '" +
 "$nombre1=' . $_REQUEST['nombre1'] . '" +
 "$nombre2=' . $_REQUEST['nombre2'] . '" +
 "$nombre3=' . $_REQUEST['nombre3'] . '" +
@@ -48,7 +56,6 @@ if ($_REQUEST) {
 "$nombre6=' . $_REQUEST['nombre6'] . '" +
 "$nombre7=' . $_REQUEST['nombre7'] . '" +
 "$nombre8=' . $_REQUEST['nombre8'] . '" +
-"$correction=' . $_REQUEST['correction'] . '" +
 "$refresh=' . $_REQUEST['refresh'] . '" +
 "$logo_file=' . $_REQUEST['logo_file'] . '" +
 "$logo_width=' . $_REQUEST['logo_width'] . '" +

@@ -159,6 +159,7 @@ foreach ($videos as $aforo) {
 
       var total = [];
       var max = [];
+      var correction = [];
 
       for (var i = 1; i <= 8; i++) {
         total[i] = 0;
@@ -188,10 +189,6 @@ foreach ($videos as $aforo) {
         }
       }
 
-      var correction = 0;
-      if (dict["correction"] && !isNaN(dict["correction"]))
-        correction = Number(dict["correction"]);
-
       var header = "Bienvenido!";
       if (dict["header"])
         header = dict["header"];
@@ -215,14 +212,17 @@ foreach ($videos as $aforo) {
         if (dict["refresh"] && !isNaN(dict["refresh"]))
           refresh = Number(dict["refresh"]);
 
+        if (dict["correction" + i] && !isNaN(dict["correction" + i]))
+          correction[i] = Number(dict["correction" + i]);
+
         if (debug && !isNaN(total[i]))
-          printDebug("Correction: " + correction + "<br>");
+          printDebug("Correction: " + correction[i] + "<br>");
 
         max[i] = 50;
         if (dict["max" + i] && !isNaN(dict["max" + i]))
           max[i] = Number(dict["max" + i]);
 
-        total[i] += correction;
+        total[i] += correction[i];
 
         if (total[i] < 0 && dict["negative"] == false)
           total[i] = 0;
