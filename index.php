@@ -121,6 +121,15 @@ foreach ($videos as $aforo) {
       return total;
     }
 
+    function getTerraza() {
+      var xmlHttp = new XMLHttpRequest();
+      xmlHttp.open("GET", "terraza.php", false); // false for synchronous request
+      xmlHttp.withCredentials = true;
+      xmlHttp.send(null);
+      var str = xmlHttp.responseText;
+      return Number(str) || 0;
+    }
+
     function parseParams() {
       var dictionary = {};
       if (data.indexOf('$') === 0) {
@@ -161,7 +170,21 @@ foreach ($videos as $aforo) {
       var max = [];
       var correction = [];
 
-      for (var i = 1; i <= 8; i++) {
+      //terraza
+      total[1] = 0;
+      if (dict["camera" + 1]) {
+        var ip = dict["camera" + 1];
+        var c1 = dict["camera" + 1 + "_counter1"];
+        var c2 = dict["camera" + 1 + "_counter2"];
+        try {
+          total[1] += getTerraza();
+        } catch (error) {
+          document.getElementById("tabla" + 1) ? document.getElementById("tabla" + 1).hidden = true : null;
+        }
+      }
+      //end terraza
+
+      for (var i = 2; i <= 8; i++) {
         total[i] = 0;
         if (dict["camera" + i]) {
           var ip = dict["camera" + i];
@@ -315,10 +338,12 @@ foreach ($videos as $aforo) {
       if (index >= 0 && index < videos.length - 1) {
         $('source', $('#mi-video')).attr('src', "utiles/videos/" + videos[index + 1].url_video);
       } else {
-        $('source', $('#mi-video')).attr('src', "utiles/videos/" + videos[0].url_video);
+        videos[0] ? $('source', $('#mi-video')).attr('src', "utiles/videos/" + videos[0].url_video) : null;
       }
-      $('#mi-video')[0].load();
-      $('#mi-video')[0].play();
+      if (videos[0]) {
+        $('#mi-video')[0].load();
+        $('#mi-video')[0].play();
+      }
     });
 
     function actualizarCuerpo() {
