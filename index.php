@@ -52,7 +52,7 @@ foreach ($videos as $aforo) {
   </div>
 
   <div id="marquee" class="mb-5 pb-5">
-    <div style="font-size: 200%;" id="scrolling"></div>
+    <div style="font-size: 200%; font-weight: bold;" id="scrolling"></div>
   </div>
 
   <!-- Ventana con colores -->
