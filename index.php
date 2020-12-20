@@ -41,7 +41,7 @@ foreach ($videos as $aforo) {
 
   <!-- Videos -->
   <div class="row m-0 mt-5">
-    <video id="mi-video" autoplay muted width="100%" height="730px" class="d-block" style="border: 0;">
+    <video id="mi-video" autoplay muted width="100%" height="880px" class="d-block" style="border: 0;">
       <source src="utiles/videos/<?php echo $url ?>" type="video/mp4">
     </video>
   </div>
@@ -250,13 +250,13 @@ foreach ($videos as $aforo) {
         if (total[i] < 0 && dict["negative"] == false)
           total[i] = 0;
 
-        if (isNaN(total[i])) {
-          document.getElementById("div_total" + i).innerHTML = "N/A";
-          document.getElementById("div_max" + i).innerHTML = "N/A";
-          document.getElementById("sign" + i).style.display = "none";
-          setTimeout(updateData, refresh * 1000);
-          return;
-        }
+        // if (isNaN(total[i])) {
+        //   document.getElementById("div_total" + i).innerHTML = "N/A";
+        //   document.getElementById("div_max" + i).innerHTML = "N/A";
+        //   document.getElementById("sign" + i).style.display = "none";
+        //   setTimeout(updateData, refresh * 1000);
+        //   return;
+        // }
 
         document.getElementById("div_total" + i).innerHTML = total[i].toString();
         document.getElementById("div_max" + i).innerHTML = max[i].toString();
