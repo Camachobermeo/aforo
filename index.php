@@ -29,8 +29,8 @@ foreach ($videos as $aforo) {
 
     <div class="col-md-4">
       <br><br>
-      <div id="reloj"></div>
-      <h3 class='text-center' style='font-size: 40px' id="tambiente"> </h3>
+      <div class="text-center" id="reloj"></div>
+
       <input type="text" id="idRegistro" hidden>
     </div>
 
@@ -41,10 +41,12 @@ foreach ($videos as $aforo) {
 
   <!-- Videos -->
   <div class="row m-0 mt-2">
-    <video id="mi-video" autoplay muted width="100%" height="880" style="border: 0;">
+    <video id="mi-video" autoplay muted width="1600" height="880" style="border: 0;">
       <source src="utiles/videos/<?php echo $url ?>" type="video/mp4">
     </video>
   </div>
+
+  <h3 class='text-center' style='font-size: 40px' id="tambiente"> </h3>
 
   <!-- Cuerpo donde aparecen los nombre que entran y salen -->
   <div class="mt-2">
