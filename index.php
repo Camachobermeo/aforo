@@ -40,20 +40,19 @@ foreach ($videos as $aforo) {
   </div>
 
   <!-- Videos -->
-  <div class="row m-0 mt-5">
-    <video id="mi-video" autoplay muted width="100%" height="880px" class="d-block" style="border: 0;">
+  <div class="row m-0 mt-2">
+    <video id="mi-video" autoplay muted width="100%" height="880" style="border: 0;">
       <source src="utiles/videos/<?php echo $url ?>" type="video/mp4">
     </video>
   </div>
 
   <!-- Cuerpo donde aparecen los nombre que entran y salen -->
-  <div class="mt-5">
-    <br><br>
+  <div class="mt-2">
     <div id="cuerpo"></div>
   </div>
 
-  <div id="marquee" class="pb-4">
-    <div id="scrolling"></div>
+  <div id="marquee" class="mb-5 pb-5">
+    <div style="font-size: 200%;" id="scrolling"></div>
   </div>
 
   <!-- Ventana con colores -->

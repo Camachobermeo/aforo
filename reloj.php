@@ -77,4 +77,4 @@ switch ($mes) {
 }
 
 echo "<h3><p style='font-size: 40px' > " . $hora . "</p><h3>";
-echo "<h3><p style='font-size: 24px' > " . $dia . ", " . strftime(" %d ") . " de " . $mes .  "</p><h3><br>";
+echo "<h3><p style='font-size: 20px' > " . $dia . ", " . strftime(" %d ") . " de " . $mes .  "</p><h3><br>";
