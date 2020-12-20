@@ -41,7 +41,7 @@ foreach ($videos as $aforo) {
 
   <!-- Videos -->
   <div class="row m-0 mt-5">
-    <video id="mi-video" autoplay muted width="100%" height="630px" class="d-block" style="border: 0;">
+    <video id="mi-video" autoplay muted width="100%" height="730px" class="d-block" style="border: 0;">
       <source src="utiles/videos/<?php echo $url ?>" type="video/mp4">
     </video>
   </div>
