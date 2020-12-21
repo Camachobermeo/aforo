@@ -23,18 +23,18 @@ foreach ($videos as $aforo) {
 <body class="p-2 mt-1">
   <!-- Logos, reloj y tempertura -->
   <div class="row m-0">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <img src="utiles/logo1.jpg" width="180" style="position: absolute; left: 0; padding: 20px;"></img>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-6">
       <br><br>
       <div class="text-center" id="reloj"></div>
-
+      <h3 class='text-center' style='font-size: 40px' id="tambiente"> </h3>
       <input type="text" id="idRegistro" hidden>
     </div>
 
-    <div class="col-md-4">
+    <div class="col-md-3">
       <img id="logo" src="utiles/logo.png" width="180" style="position: absolute; right: 0; padding: 10px;" class="mt-3"></img>
     </div>
   </div>
@@ -45,8 +45,6 @@ foreach ($videos as $aforo) {
       <source src="utiles/videos/<?php echo $url ?>" type="video/mp4">
     </video>
   </div>
-
-  <h3 class='text-center' style='font-size: 40px' id="tambiente"> </h3>
 
   <!-- Cuerpo donde aparecen los nombre que entran y salen -->
   <div class="mt-2">
