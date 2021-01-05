@@ -24,37 +24,40 @@
             <ul class="navbar-nav mr-auto text-center">
                 <li class="nav-item">
                     <a class="nav-link" href="/aforo/admin/ajustes.php">Ajustes</a>
-                    </li>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/aforo/admin/totem/listar_totem.php">Totem</a>
-                    </li>
-                    <li class="nav-item">
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/aforo/admin/on_off/contador-online.php">Contador Online</a>
+                </li>
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="/aforo/admin/excel/carga-masiva.php">Importar</a>
-                    </li>
-                    <li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/aforo/admin/excel/consulta.php">Exportar</a>
-                    </li>
-                    <li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="/aforo/admin/personas/listarpersona.php">Personas</a>
-                    </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="/aforo/admin/logo/tabla_logo.php">Logos</a>
-                    </li>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/aforo/admin/video/tablavideo.php">Videos</a>
-                    </li>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/aforo/admin/on_off/apagar.php">Apagar</a>
-                    </li>
-                <li class="nav-item">
+                </li>
+                <!-- <li class="nav-item">
                     <a class="nav-link" href="/aforo/admin/on_off/rfid.php">RFID</a>
-                    </li>
+                </li> -->
                 <li class="nav-item">
                     <a class="nav-link" href="/aforo/admin/on_off/recargar.php">Recargar</a>
-                    </li>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/aforo/admin/on_off/reiniciar.php">Reiniciar</a>
-                    </li>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/aforo/admin/index.php">Salir</a>
                 </li>
