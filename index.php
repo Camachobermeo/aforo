@@ -277,6 +277,16 @@ foreach ($videos as $aforo) {
 
         if (dict["camera" + i]) {
           document.getElementById("tabla" + i) ? document.getElementById("tabla" + i).hidden = false : null;
+          $.ajax({
+            data: {
+              camara: total[i]
+            },
+            url: 'admin/camaras/camara' + i + '.php',
+            type: 'post',
+            success: function(response) {
+              console.log(response);
+            }
+          })
         } else {
           document.getElementById("tabla" + i) ? document.getElementById("tabla" + i).hidden = true : null;
         }
